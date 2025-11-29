@@ -1,14 +1,13 @@
 package FrontGUI;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import CoreEngine.*;
 /**
- * LibraryApplication의 패널(Event Listener Object의 역할 겸용)
+ * LibraryApplication의 패널 (Event Listener Object 겸용)
  *
- * @author (팀11)
- * @version (2025.11.28)
+ * @author (11팀)
+ * @version (2025.11.29)
  */
 public class MyPanel extends JPanel implements ActionListener
 {
@@ -17,10 +16,10 @@ public class MyPanel extends JPanel implements ActionListener
 
     protected JLabel ml_BorrowerName, ml_BookTitle, ml_BookAuthor, ml_BookID;
     protected JTextField mtf_BorrowerName, mtf_BookTitle, mtf_BookAuthor, mtf_BookID;
-    protected JButton mb_Run, mb_Clear;
+    protected JButton mb_Run, mb_Clear, mb_FloanD, mb_OloanD;
     protected JTextArea mta;
-    protected String[] loanORreturn = {"대출", "반납"};
-    protected JComboBox mcb_loanORreturn;
+    protected String[] selectUC = {"이용자 등록","책 등록","대출", "반납"};
+    protected JComboBox mcb_selectUC;
     protected String output = "";
     protected int index;
 
@@ -34,7 +33,12 @@ public class MyPanel extends JPanel implements ActionListener
         mtf_BookTitle = new JTextField("Book Title", 20);
         mtf_BookAuthor= new JTextField("Book Author", 20);
         mtf_BookID = new JTextField("Book ID", 20);
-        mcb_loanORreturn = new JComboBox(loanORreturn);
+
+        mcb_selectUC = new JComboBox(selectUC);
+        
+        
+        mta = new JTextArea(20, 28);
+        this.add(new JScrollPane(mta));
 
         this.add(ml_BorrowerName);
         this.add(mtf_BorrowerName);
@@ -45,18 +49,21 @@ public class MyPanel extends JPanel implements ActionListener
         this.add(ml_BookID);
         this.add(mtf_BookID);
         this.add(new JLabel("선택"));
-        this.add(mcb_loanORreturn);
+        this.add(mcb_selectUC);
 
         mb_Run = new JButton("실행");
         this.add(mb_Run);
+        mb_FloanD = new JButton("대출가능한 책");
+        this.add(mb_FloanD);
+        mb_OloanD = new JButton("대출중인 책");
+        this.add(mb_OloanD);
         mb_Clear = new JButton("Clear");
         this.add(mb_Clear);
 
-        mta = new JTextArea(20, 25);
-        this.add(new JScrollPane(mta));
-
-        mcb_loanORreturn.addActionListener(this);
+        mcb_selectUC.addActionListener(this);
         mb_Run.addActionListener(this);
+        mb_FloanD.addActionListener(this);
+        mb_OloanD.addActionListener(this);
         mb_Clear.addActionListener(this);
 
     }
@@ -64,24 +71,38 @@ public class MyPanel extends JPanel implements ActionListener
     public void actionPerformed(ActionEvent e){
         LibraryApplication libApp = new LibraryApplication("선문대학교 중앙도서관");
 
-        if(e.getSource().equals(mcb_loanORreturn)){
+        if(e.getSource().equals(mcb_selectUC)){
             JComboBox cb = (JComboBox)e.getSource();
             index = cb.getSelectedIndex(); 
 
-            output = loanORreturn[index] + "자 : " + mtf_BorrowerName.getText() + "\n"
-            + loanORreturn[index] + "책 제목 : " + mtf_BookTitle.getText() + "\n"
-            + loanORreturn[index] + "책 저자 : " + mtf_BookAuthor.getText() + "\n"
-            + loanORreturn[index] + "책 등록번호 : " + mtf_BookID.getText() + "\n"
+            output = selectUC[index] + "자 : " + mtf_BorrowerName.getText() + "\n"
+            + selectUC[index] + "책 제목 : " + mtf_BookTitle.getText() + "\n"
+            + selectUC[index] + "책 저자 : " + mtf_BookAuthor.getText() + "\n"
+            + selectUC[index] + "책 등록번호 : " + mtf_BookID.getText() + "\n"
             + "-------------------------------------------------" + "\n";
         }   
 
         if(index == 0 && e.getSource().equals(mb_Run)){
-            String outputTitle = libApp.loanOneBook(mtf_BorrowerName.getText(), mtf_BookID.getText());
-            mta.append(outputTitle + "\n" + output);
+            String outputTitle = libApp.registerOneBorrower(mtf_BorrowerName.getText());
+            mta.append(outputTitle + "\n"+ "-------------------------------------------------" + "\n");
         }
         else if(index == 1 && e.getSource().equals(mb_Run)){
+            String outputTitle = libApp.registerOneBook(mtf_BookTitle.getText(),mtf_BookAuthor.getText(),mtf_BookID.getText());
+            mta.append(outputTitle + "\n"+ "-------------------------------------------------" + "\n");        
+        }
+        else if(index == 2 && e.getSource().equals(mb_Run)){
+            String outputTitle = libApp.loanOneBook(mtf_BorrowerName.getText(), mtf_BookID.getText());
+            mta.append(outputTitle + "\n" + output);        
+        }
+        else if(index == 3 && e.getSource().equals(mb_Run)){
             String outputTitle = libApp.returnOneBook(mtf_BookID.getText());
             mta.append(outputTitle + "\n" + output);
+        }
+        else if(e.getSource().equals(mb_FloanD)){
+            mta.append(libApp.displayBookForLoan()+ "\n"+ "-------------------------------------------------" + "\n");
+        }
+        else if(e.getSource().equals(mb_OloanD)){
+            mta.append(libApp.displayBookOnLoan()+ "\n"+ "-------------------------------------------------" + "\n");
         }
         else if(e.getSource().equals(mb_Clear)){
             mtf_BorrowerName.setText("");
