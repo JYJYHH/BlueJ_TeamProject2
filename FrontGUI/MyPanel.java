@@ -25,11 +25,13 @@ public class MyPanel extends JPanel implements ActionListener
     protected int index;
 
     public MyPanel(){
+        setLayout(new BorderLayout(10, 10));
+        
         JPanel topPanel = new JPanel();
         JLabel titleLabel = new JLabel("선문대학교 중앙도서관");
         topPanel.setBackground(Color.LIGHT_GRAY);
         topPanel.add(titleLabel);
-        this.add(topPanel);
+        this.add(topPanel, BorderLayout.NORTH);
         
         ml_BorrowerName = new JLabel("이용자 이름");
         ml_BookTitle = new JLabel("책 제목");
@@ -48,26 +50,30 @@ public class MyPanel extends JPanel implements ActionListener
         mta.setText("선문대학교 중앙도서관입니다\n"
         + "----------------------------------------------------------\n");
         this.add(new JScrollPane(mta));
+        
+        JPanel bottomPanel = new JPanel(new GridLayout(4, 2, 5, 5));
 
-        this.add(ml_BorrowerName);
-        this.add(mtf_BorrowerName);
-        this.add(ml_BookTitle);
-        this.add(mtf_BookTitle);
-        this.add(ml_BookAuthor);
-        this.add(mtf_BookAuthor);
-        this.add(ml_BookID);
-        this.add(mtf_BookID);
-        this.add(new JLabel("선택"));
-        this.add(mcb_selectUC);
+        bottomPanel.add(ml_BorrowerName);
+        bottomPanel.add(mtf_BorrowerName);
+        bottomPanel.add(ml_BookTitle);
+        bottomPanel.add(mtf_BookTitle);
+        bottomPanel.add(ml_BookAuthor);
+        bottomPanel.add(mtf_BookAuthor);
+        bottomPanel.add(ml_BookID);
+        bottomPanel.add(mtf_BookID);
+        bottomPanel.add(new JLabel("선택"));
+        bottomPanel.add(mcb_selectUC);
 
         mb_Run = new JButton("실행");
-        this.add(mb_Run);
+        bottomPanel.add(mb_Run);
         mb_FloanD = new JButton("대출가능한 책");
-        this.add(mb_FloanD);
+        bottomPanel.add(mb_FloanD);
         mb_OloanD = new JButton("대출중인 책");
-        this.add(mb_OloanD);
+        bottomPanel.add(mb_OloanD);
         mb_Clear = new JButton("Clear");
-        this.add(mb_Clear);
+        bottomPanel.add(mb_Clear);
+        
+        add(bottomPanel, BorderLayout.SOUTH);
 
         mcb_selectUC.addActionListener(this);
         mb_Run.addActionListener(this);
