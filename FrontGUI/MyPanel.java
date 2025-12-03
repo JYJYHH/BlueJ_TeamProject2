@@ -26,7 +26,7 @@ public class MyPanel extends JPanel implements ActionListener
 
     public MyPanel(){
         JPanel topPanel = new JPanel();
-        JLabel titleLabel = new JLabel("선문대학교 중앙도서관입니다");
+        JLabel titleLabel = new JLabel("선문대학교 중앙도서관");
         topPanel.setBackground(Color.LIGHT_GRAY);
         topPanel.add(titleLabel);
         this.add(topPanel);
@@ -45,6 +45,8 @@ public class MyPanel extends JPanel implements ActionListener
         
         
         mta = new JTextArea(20, 28);
+        mta.setText("선문대학교 중앙도서관입니다\n"
+        + "----------------------------------------------------------\n");
         this.add(new JScrollPane(mta));
 
         this.add(ml_BorrowerName);
