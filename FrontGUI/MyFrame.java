@@ -1,22 +1,22 @@
 package FrontGUI;
-
 import javax.swing.*;
 
 /**
  * LibraryApplication의 프레임
  *
- * @author (profsHwang)
- * @version (2025.11.26)
+ * @author (11팀)
+ * @version (2025.12.04)
  */
 public class MyFrame extends JFrame
 {
     public MyFrame(){
-        this.setTitle("도서관 관리 시스템");
+        this.setTitle("선문대학교 도서관 관리 시스템");
         this.setSize(350, 590);
-        
-        this.add(new MyPanel());
-        
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        MyPanel mp = new MyPanel();
+        this.add(mp);
+        
         this.setVisible(true);
     }
 }
