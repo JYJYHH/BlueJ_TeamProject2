@@ -2,6 +2,7 @@ package FrontGUI;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
 /**
  * LibraryApplication의 패널
  *
@@ -71,13 +72,13 @@ public class MyPanel extends JPanel
         
         add(bottomPanel, BorderLayout.SOUTH);
         
-        MyAListener listener = new MyAListener(this);
+        MyAListener Alistener = new MyAListener(this);
 
-        mcb_selectUC.addActionListener(listener);
-        mb_Run.addActionListener(listener);
-        mb_FloanD.addActionListener(listener);
-        mb_OloanD.addActionListener(listener);
-        mb_Clear.addActionListener(listener);
+        mcb_selectUC.addActionListener(Alistener);
+        mb_Run.addActionListener(Alistener);
+        mb_FloanD.addActionListener(Alistener);
+        mb_OloanD.addActionListener(Alistener);
+        mb_Clear.addActionListener(Alistener);
 
     }
 }

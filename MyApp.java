@@ -3,7 +3,7 @@ import CoreEngine.*;
 /**
  * LibraryApplication 시작
  *
- * @author (profsHwang)
+ * @author (11팀)
  * @version (2025.11.26)
  */
 public class MyApp
