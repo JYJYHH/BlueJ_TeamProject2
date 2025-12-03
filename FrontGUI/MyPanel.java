@@ -25,6 +25,12 @@ public class MyPanel extends JPanel implements ActionListener
     protected int index;
 
     public MyPanel(){
+        JPanel topPanel = new JPanel();
+        JLabel titleLabel = new JLabel("선문대학교 중앙도서관입니다");
+        topPanel.setBackground(Color.LIGHT_GRAY);
+        topPanel.add(titleLabel);
+        this.add(topPanel);
+        
         ml_BorrowerName = new JLabel("이용자 이름");
         ml_BookTitle = new JLabel("책 제목");
         ml_BookAuthor = new JLabel("책 저자이름");
