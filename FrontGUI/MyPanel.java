@@ -37,7 +37,7 @@ public class MyPanel extends JPanel implements ActionListener
         mcb_selectUC = new JComboBox(selectUC);
         
         
-        mta = new JTextArea(20, 28);
+        mta = new JTextArea("선문대학교 중앙도서관에 오신것을 환영합니다!",20, 28);
         this.add(new JScrollPane(mta));
 
         this.add(ml_BorrowerName);
