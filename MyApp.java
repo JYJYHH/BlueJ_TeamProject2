@@ -2,7 +2,7 @@ import FrontGUI.*;
 import CoreEngine.*;
 /**
  * LibraryApplication 시작
- *
+
  * @author (11팀)
  * @version (2025.11.26)
  */
