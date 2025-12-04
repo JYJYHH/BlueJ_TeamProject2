@@ -11,7 +11,7 @@ import java.awt.event.*;
  */
 public class MyPanel extends JPanel
 {
-    protected JLabel ml_BorrowerName, ml_BookTitle, ml_BookAuthor, ml_BookID;
+    protected JLabel ml_BorrowerName, ml_BookTitle, ml_BookAuthor, ml_BookID, ml_Choice;
     protected JTextField mtf_BorrowerName, mtf_BookTitle, mtf_BookAuthor, mtf_BookID;
     protected JButton mb_Run, mb_Clear, mb_FloanD, mb_OloanD;
     protected JTextArea mta;
@@ -31,6 +31,7 @@ public class MyPanel extends JPanel
         ml_BookTitle = new JLabel("책 제목");
         ml_BookAuthor = new JLabel("책 저자이름");
         ml_BookID = new JLabel("책 등록번호");
+        ml_Choice = new JLabel("선택");
 
         mtf_BorrowerName = new JTextField("예: 홍길동", 20);
         mtf_BookTitle = new JTextField("예: 소프트웨어설계론", 20);
@@ -54,7 +55,7 @@ public class MyPanel extends JPanel
         bottomPanel.add(mtf_BookAuthor);
         bottomPanel.add(ml_BookID);
         bottomPanel.add(mtf_BookID);
-        bottomPanel.add(new JLabel("선택"));
+        bottomPanel.add(ml_Choice);
         bottomPanel.add(mcb_selectUC);
 
         mb_Run = new JButton("실행");
