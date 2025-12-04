@@ -60,7 +60,7 @@ public class MyPanel extends JPanel
         mb_Run = new JButton("실행");
         mb_FloanD = new JButton("대출가능");
         mb_OloanD = new JButton("대출중");
-        mb_Clear = new JButton("Clear");
+        mb_Clear = new JButton("Clear");bottomPanel.add(new JLabel("선택"));
         
         bottomPanel.add(mb_Run);
         bottomPanel.add(mb_FloanD);
