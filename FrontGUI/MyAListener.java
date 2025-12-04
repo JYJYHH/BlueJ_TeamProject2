@@ -7,7 +7,7 @@ import CoreEngine.*;
 /**
  * MyPanel의 Event Listener Object 
  *
- * @author (11팀)
+ * @author (임기홍_2021320032, 임기홍_2021320032, 안교관_2021320014 )
  * @version (2025.12.04)
  */
 public class MyAListener implements ActionListener

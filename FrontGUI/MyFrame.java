@@ -4,7 +4,7 @@ import javax.swing.*;
 /**
  * LibraryApplication의 프레임
  *
- * @author (11팀)
+ * @author (임기홍_2021320032, 임기홍_2021320032, 안교관_2021320014 )
  * @version (2025.12.04)
  */
 public class MyFrame extends JFrame
