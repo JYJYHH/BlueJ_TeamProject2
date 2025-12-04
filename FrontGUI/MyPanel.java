@@ -11,9 +11,6 @@ import java.awt.event.*;
  */
 public class MyPanel extends JPanel
 {
-    protected JPanel buttonPanel;
-    protected JPanel outputDataPanel;
-
     protected JLabel ml_BorrowerName, ml_BookTitle, ml_BookAuthor, ml_BookID;
     protected JTextField mtf_BorrowerName, mtf_BookTitle, mtf_BookAuthor, mtf_BookID;
     protected JButton mb_Run, mb_Clear, mb_FloanD, mb_OloanD;
@@ -35,10 +32,10 @@ public class MyPanel extends JPanel
         ml_BookAuthor = new JLabel("책 저자이름");
         ml_BookID = new JLabel("책 등록번호");
 
-        mtf_BorrowerName = new JTextField("Your Name", 20);
-        mtf_BookTitle = new JTextField("Book Title", 20);
-        mtf_BookAuthor= new JTextField("Book Author", 20);
-        mtf_BookID = new JTextField("Book ID", 20);
+        mtf_BorrowerName = new JTextField("예: 홍길동", 20);
+        mtf_BookTitle = new JTextField("예: 소프트웨어설계론", 20);
+        mtf_BookAuthor= new JTextField("예: (c)sHwang", 20);
+        mtf_BookID = new JTextField("예: 11111111", 20);
         
         mcb_selectUC = new JComboBox(selectUC);
         
