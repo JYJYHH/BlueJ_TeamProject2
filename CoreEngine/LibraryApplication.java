@@ -4,7 +4,7 @@ package CoreEngine;
 /**
  * Mock-Up(LibraryApplication : 6개의 Use Case 제공)
  *
- * @author (11팀)
+ * @author (임기홍_2021320032, 임기홍_2021320032, 안교관_2021320014 )
  * @version (2025.11.26)
  */
 public class LibraryApplication
